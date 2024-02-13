@@ -19,6 +19,9 @@ XXX_raw_1.fq.gz   AND   XXX_raw_2.fq.gz  where "XXX" is an identifier the same i
 
 The pipeline also needs the primer sequences to trim them from the reads and they have to be in the file names primers.fasta in fasta format. An example file is provided but remember to change it according to what primers were used otherwise your results will be unrelaiable (but the pipeline will go through). 
 
+For taxonomic classification you need to provide a path to dedicated database for formated for dada2. More info here: https://benjjneb.github.io/dada2/training.html
+At this moment you have to provide the path manually. By default it is set for IBL blis server. Make sure to use the database dedicated for your type of data, for example SILVA for 16S and UNITE for ITS.  
+
 ### Running the pipeline
 1. Clone the pipeline
 2. Copy or link the data to the /raw_data folder
