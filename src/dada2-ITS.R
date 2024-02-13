@@ -75,7 +75,7 @@ save.image(file = "./processed/Renvironment.RData")
 ################ Creating sequence reference file and saving it
 refseq = NULL
 for (i in 1:length(colnames(otu_table))) {refseq = c(refseq,paste0(">ASV",i),colnames(otu_table)[i])}
-writeLines(refseq,file="./results/refseq.fasta")
+writeLines(refseq, "./results/refseq.fasta")
 
 ################ changing sequences in ASV names to ASV[number]
 colnames(otu_table) = paste0(rep("ASV",length(colnames(otu_table))), 1:length(colnames(otu_table)))
