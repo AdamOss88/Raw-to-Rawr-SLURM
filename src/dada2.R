@@ -85,6 +85,7 @@ writeLines(refseq,"./results/refseq.fasta")
 
 ################ changing sequences in ASV names to ASV[number]
 colnames(otu_table) = paste0(rep("ASV",length(colnames(otu_table))), 1:length(colnames(otu_table)))
+row.names(tax_table) = colnames(otu_table) 
 
 ################# Save the otu table and taxonomy table
 saveRDS(otu_table, file="./results/otu_table.RDS")
