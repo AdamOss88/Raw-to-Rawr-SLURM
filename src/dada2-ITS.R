@@ -68,8 +68,6 @@ otu_table = dada2::removeBimeraDenovo(seqtab, method="consensus", multithread=TR
 
 ################# Taxonomy
 tax_table = dada2::assignTaxonomy(otu_table, "/vol/local/databases_shared/UNITE9.0/sh_general_release_dynamic_s_all_18.07.2023.fasta", multithread=TRUE, verbose=T)
-#species - generally optional
-#tax_table = dada2::addSpecies(tax_table, "/vol/local/databases_shared/SILVA138/silva_species_assignment_v138.1.fa.gz", verbose=T)
 
 ##checkpoint
 save.image(file = "./processed/Renvironment.RData")
