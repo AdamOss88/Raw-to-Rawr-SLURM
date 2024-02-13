@@ -42,7 +42,7 @@ The pipeline also needs the primer sequences to trim them from the reads and the
 8. say "rawr!" (only if the results were generated)
 9. Download the results
 
-###output
+### output
 The output of the pipeline is saved in the folder "/results" and includes:
 - otu_table.csv 
 - tax_table.csv - taxonomy table
