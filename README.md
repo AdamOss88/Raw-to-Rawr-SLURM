@@ -1,6 +1,6 @@
 # Raw-to-Rawr-server
 
-This pipeline can be used for processing of pair-end Illumina raw amplicon data on Linux servers. Can be used for 16S and ITS data and potentially other amplicons.
+This pipeline can be used for processing of pair-end Illumina raw amplicon data on Linux servers. Can be used for 16S and ITS data and potentially other amplicons. A version for computing clusters using SLURM (ALICE, PICASSO etc.) will be available soon.
 
 The pipeline can be downloaded to the server using command:
 ```bash
