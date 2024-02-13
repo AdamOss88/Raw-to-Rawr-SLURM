@@ -56,7 +56,10 @@ The pipeline also generates a series of reports, all in "/reports" folder:
 - cutadapt_report.txt - report from trimming primers
 - dada2_error_plots.pdf - error model from dada2
 -  folder "/quality" with .pdf quality reports from all the reads from fastp
-  
+
+Other output:
+- /processing/moduleX.out - command line output to remember what was done and track potential errors
+- /processing/Renvironment.RData  - save R environment to get to intermediate states of analysis of you need  
 
 
 
