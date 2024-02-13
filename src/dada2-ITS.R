@@ -66,33 +66,26 @@ seqtab = dada2::makeSequenceTable(mergers)
 ################# Chimeras removal
 otu_table = dada2::removeBimeraDenovo(seqtab, method="consensus", multithread=TRUE, verbose=TRUE)
 
-################# Taxonomy asssignment 
-tax_table = dada2::assignTaxonomy(otu_table, "/vol/local/databases_shared/SILVA138/silva_nr99_v138.1_train_set.fa.gz", multithread=TRUE, verbose=T)
-
-##checkpoint
-save.image(file = "./processed/Renvironment.RData")
-
-#species assignemnt - generally optional
-tax_table = dada2::addSpecies(tax_table, "/vol/local/databases_shared/SILVA138/silva_species_assignment_v138.1.fa.gz", verbose=T)
-
-##checkpoint
-save.image(file = "./processed/Renvironment.RData")
-
 ################ Creating sequence reference file and saving it
 refseq = NULL
 for (i in 1:length(colnames(otu_table))) {refseq = c(refseq,paste0(">ASV",i),colnames(otu_table)[i])}
-writeLines(refseq,"./results/refseq.fasta")
+writeLines(refseq,file="./results/refseq.fasta")
 
 ################ changing sequences in ASV names to ASV[number]
 colnames(otu_table) = paste0(rep("ASV",length(colnames(otu_table))), 1:length(colnames(otu_table)))
 
-################# Save the otu table and taxonomy table
+################# Save the otu table
 saveRDS(otu_table, file="./results/otu_table.RDS")
 write.csv(otu_table, file="./results/otu_table.csv", row.names=T)
 
+################# Taxonomy
+tax_table = dada2::assignTaxonomy(otu_table, "/vol/local/databases_shared/UNITE9.0/sh_general_release_dynamic_s_all_18.07.2023.fasta", multithread=TRUE, verbose=T)
+#species - generally optional
+#tax_table = dada2::addSpecies(tax_table, "/vol/local/databases_shared/SILVA138/silva_species_assignment_v138.1.fa.gz", verbose=T)
+
+################# Save the taxonomy table
 saveRDS(tax_table, file="./results/tax_table.RDS")
 write.csv(tax_table, file="./results/tax_table.csv", row.names=T)
 
 ##checkpoint
 save.image(file = "./processed/Renvironment.RData")
-

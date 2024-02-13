@@ -70,4 +70,4 @@ loessErrfun_mod4 <- function(trans) {
   colnames(err) <- colnames(trans)
   # Return
   return(err)
-}#loessErrfun_mod4
+}
