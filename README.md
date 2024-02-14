@@ -35,15 +35,16 @@ At this moment you have to provide the path manually. By default it is set for I
 ./module1-ITS.sh
 ```   
 6. check the quality of the data and if youre satisfied continue
-7. run module 2
+7. make sure the path/s to taxonomy reference databases are correct   
+8. run module 2
 ```bash
 #for 16S
 ./module2-16S.sh
 #for ITS
 ./module2-ITS.sh
 ```  
-8. say "rawr!" (only if the results were generated)
-9. Download the results
+9. say "rawr!" (only if the results were generated)
+10. Download the results
 
 ### output
 The output of the pipeline is saved in the folder "/results" and includes:
