@@ -1,4 +1,16 @@
 #!/bin/bash
+#SBATCH -J module1.sh
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=10gb
+#SBATCH --time=10:00:00
+#SBATCH --constraint=cal
+#SBATCH --error=module1.%J.err
+#SBATCH --output=module1.%J.out
+
+#load software
+module load cutadapt/4.4
+module load seqkit/2.2.0
+module load fastp/0.23.4
 
 {
 ###make folders
