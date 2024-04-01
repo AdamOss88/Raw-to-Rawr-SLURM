@@ -2,6 +2,8 @@
 
 This pipeline can be used for processing of pair-end Illumina raw amplicon data on Linux servers. Can be used for 16S and ITS data and potentially other amplicons. This version works on SLURM based systems and is written to be usen in UMA Picasso server. In other servers you have to make sure all the dependent software in the right version is installed. You can find the list of dependencies in ...  
 
+The pipeline was adapted to SLURM and updated by Belén Delgado Martín. 
+
 The pipeline can be downloaded to the server using command:
 ```bash
 git clone "https://github.com/AdamOss88/Raw-to-Rawr-SLURM.git"
