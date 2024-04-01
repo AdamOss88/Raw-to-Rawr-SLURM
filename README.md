@@ -1,18 +1,12 @@
-# Raw-to-Rawr-server
+# Raw-to-Rawr-SLURM
 
-This pipeline can be used for processing of pair-end Illumina raw amplicon data on Linux servers. Can be used for 16S and ITS data and potentially other amplicons. A version for computing clusters using SLURM (ALICE, PICASSO etc.) will be available soon.
+This pipeline can be used for processing of pair-end Illumina raw amplicon data on Linux servers. Can be used for 16S and ITS data and potentially other amplicons. This version works on SLURM based systems and is written to be usen in UMA Picasso server. In other servers you have to make sure all the dependent software in the right version is installed. You can find the list of dependencies in ...  
 
 The pipeline can be downloaded to the server using command:
 ```bash
-git clone "https://github.com/AdamOss88/Raw-to-Rawr-server.git"
+git clone "https://github.com/AdamOss88/Raw-to-Rawr-SLURM.git"
 ```
 *you have to have git installed
-
-The user has to install and activate the conda envronment specified in AmpliconENV.yml file. 
-```bash
-conda env create -f AmpliconENV.yml
-conda activate AmpliconENV
-```
 
 It is important to mainatain the dedicated folder structure and file naming convention for the raw data. All the raw data has to be in "/raw_data" folder, named:
 XXX_raw_1.fq.gz   AND   XXX_raw_2.fq.gz  where "XXX" is an identifier the same in both paired end reads and unique between samples.
