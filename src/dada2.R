@@ -73,7 +73,7 @@ tax_table = dada2::assignTaxonomy(otu_table, $DB , multithread=TRUE, verbose=T)
 save.image(file = "./processed/Renvironment.RData")
 
 #species assignemnt - generally optional
-tax_table = dada2::addSpecies(tax_table, $DB_species, verbose=T)
+tax_table = dada2::addSpecies(tax_table, $speciesDB , verbose=T)
 
 ##checkpoint
 save.image(file = "./processed/Renvironment.RData")
