@@ -1,11 +1,11 @@
 #!/bin/bash
 #SBATCH -J module1-16S.Raw-to-Rawr
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=16
 #SBATCH --mem=10gb
 #SBATCH --time=10:00:00
 #SBATCH --constraint=cal
-#SBATCH --error=processed/module1.%J.err
-#SBATCH --output=processed/module1.%J.out
+#SBATCH --error=reports/module1.%J.err
+#SBATCH --output=reports/module1.%J.out
 
 #load software
 module load cutadapt/4.4
@@ -13,7 +13,6 @@ module load seqkit/2.2.0
 module load fastp/0.23.4
 
 ###make folders
-mkdir -p raw_data
 mkdir -p processed/1.trimmed_primers
 mkdir -p processed/2.filtered
 mkdir -p reports/quality
