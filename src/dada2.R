@@ -67,13 +67,13 @@ seqtab = dada2::makeSequenceTable(mergers)
 otu_table = dada2::removeBimeraDenovo(seqtab, method="consensus", multithread=TRUE, verbose=TRUE)
 
 ################# Taxonomy asssignment 
-tax_table = dada2::assignTaxonomy(otu_table, "/vol/local/databases_shared/SILVA138/silva_nr99_v138.1_train_set.fa.gz", multithread=TRUE, verbose=T)
+tax_table = dada2::assignTaxonomy(otu_table, $DB , multithread=TRUE, verbose=T)
 
 ##checkpoint
 save.image(file = "./processed/Renvironment.RData")
 
 #species assignemnt - generally optional
-tax_table = dada2::addSpecies(tax_table, "/vol/local/databases_shared/SILVA138/silva_species_assignment_v138.1.fa.gz", verbose=T)
+tax_table = dada2::addSpecies(tax_table, $DB_species, verbose=T)
 
 ##checkpoint
 save.image(file = "./processed/Renvironment.RData")
