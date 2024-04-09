@@ -2,6 +2,18 @@
 library("dada2")
 library("magrittr")
 
+#pass command line arguments
+database = commandArgs(trailingOnly=TRUE)
+
+if (length(database)==0) {
+  stop("You must specify the location of taxonomy databases", call.=FALSE)
+} else if (length(args)==1) { 
+  print("the databases: ")
+  database[1]
+  print(" and ")
+  database[2]
+}
+
 #functions
 source("./src/novaseq.R")
 
