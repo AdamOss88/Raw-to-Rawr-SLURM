@@ -7,10 +7,14 @@
 #SBATCH --error=reports/module1.%J.err
 #SBATCH --output=reports/module1.%J.out
 
-#load software
+###load software
 module load cutadapt/4.4
 module load seqkit/2.2.0
 module load fastp/0.23.4
+
+###set locale (just in case) 
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 ###make folders
 mkdir -p processed/1.trimmed_primers
