@@ -78,7 +78,8 @@ Other output:
 - /processing/moduleX.out - command line output to remember what was done and track potential errors
 - /processing/Renvironment.RData  - save R environment to get to intermediate states of analysis of you need  
 
-Dependencies:
+### Dependencies:
+
 seqkit/2.2.0
 cutadapt/4.4
 fastp/0.23.4
