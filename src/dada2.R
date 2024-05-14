@@ -8,10 +8,10 @@ database = commandArgs(trailingOnly=TRUE)
 if (length(database)==0) {
   stop("You must specify the location of taxonomy databases", call.=FALSE)
 } else if (length(args)==1) { 
-  print("the databases: ")
-  database[1]
-  print(" and ")
-  database[2]
+  print("database 1:")
+  print(database[1])
+  print("database 2:")
+  print(database[2])
 }
 
 #functions
@@ -28,14 +28,14 @@ filtR <- sort(list.files("./processed/2.filtered/", pattern="2.fq.gz", full.name
 
 ################# learning error rates for novaseq sequencing
 ##make sure "magrittr" is loaded
-set.seed(35) # makes the error learning consistent
+set.seed(35)
 
 errF <- dada2::learnErrors(filtF,
                     nbases = 1e8,
                     errorEstimationFunction = loessErrfun_mod4,# skip for NOT novaseq
                     randomize = T,
                     MAX_CONSIST = 12,
-                    multithread =8,
+                    multithread =128,
                     verbose = T)
 
 errR <- dada2::learnErrors(filtR,
@@ -43,7 +43,7 @@ errR <- dada2::learnErrors(filtR,
                     errorEstimationFunction = loessErrfun_mod4, # skip for NOT novaseq
                     randomize = T,
                     MAX_CONSIST = 12,
-                    multithread =8,
+                    multithread =128,
                     verbose = T)
 
 ####saving error graphs
