@@ -16,7 +16,7 @@ mkdir -p temp
 #fastqc ./raw_data/*.gz -o ./raw_data/quality/
 #multiqc -f ./raw_data/quality/ -o ./raw_data/quality/
 
-###trimming 
+###trimming
 ##read primers
 module load seqkit/2.2.0
 

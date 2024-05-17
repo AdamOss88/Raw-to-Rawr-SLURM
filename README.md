@@ -47,6 +47,7 @@ speciesDB=<here provide the path>
 #DB="/mnt/home/users/<user>/databases/silva_nr99_v138.1_train_set.fa.gz"
 #speciesDB="/mnt/home/users/<user>/databases/silva_species_assignment_v138.1.fa.gz"
 ```
+If you are using just one database, for exampe UNITE for ITS assignment , leave the "speceisDB" variable like it is. 
 
 ### Running the pipeline
 1. Clone the pipeline
