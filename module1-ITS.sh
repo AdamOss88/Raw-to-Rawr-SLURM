@@ -49,7 +49,7 @@ done
 
 cd ../..
 
-## potionally you can use the inbuild dada2 quality filtering tool  
+## optionally you can use the inbuild dada2 quality filtering tool  
 ## run an R script to filter and trim
 #Rscript --vanilla src/filter.R
 ##

@@ -13,6 +13,16 @@ git clone "https://github.com/AdamOss88/Raw-to-Rawr-SLURM.git"
 It is important to mainatain the dedicated folder structure and file naming convention for the raw data. All the raw data has to be in "/raw_data" folder, named:
 XXX_raw_1.fq.gz   AND   XXX_raw_2.fq.gz  where "XXX" is an identifier the same in both paired end reads and unique between samples.
 
+How to easily chenge the names to the correct convencion ? You can use the "for loop" !
+Let's say the file names are "XXX_R1.small.fasta.gz"
+You just have to adapt and run those two lines of code, one for forward(1) and one for reverse (2)
+
+```bash
+for i in *_R1.small.fasta.gz; do mv $i ${i//_R1.small.fasta.gz/_raw_1.fq.gz}; done
+for i in *_R2.small.fasta.gz; do mv $i ${i//_R2.small.fasta.gz/_raw_2.fq.gz}; done
+```
+What it does? finds all files in the current location ending with "_R1.small.fasta.gz" and changing the filenames using "mv" command replacing the indicated string at the end of the filename "_R1.small.fasta.gz" with the desired string "_raw_1.fq.gz".
+
 The pipeline also needs the primer sequences to trim them from the reads and they have to be in the file names primers.fasta in fasta format. An example file is provided but remember to change it according to what primers were used otherwise your results will be unrelaiable (but the pipeline will go through).
 
 the example of the primers file:
