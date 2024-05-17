@@ -67,12 +67,12 @@ seqtab = dada2::makeSequenceTable(mergers)
 otu_table = dada2::removeBimeraDenovo(seqtab, method="consensus", multithread=TRUE, verbose=TRUE)
 
 ################# Taxonomy
-tax_table = dada2::assignTaxonomy(otu_table, "/vol/local/databases_shared/UNITE9.0/sh_general_release_dynamic_s_all_18.07.2023.fasta", multithread=TRUE, verbose=T)
+tax_table = dada2::assignTaxonomy(otu_table, database[1] , multithread=TRUE, verbose=T)
 
 ##checkpoint
 save.image(file = "./processed/Renvironment.RData")
 
-################ Creating sequence reference file and saving it
+################ Creating reference sequence file and saving it
 refseq = NULL
 for (i in 1:length(colnames(otu_table))) {refseq = c(refseq,paste0(">ASV",i),colnames(otu_table)[i])}
 writeLines(refseq, "./results/refseq.fasta")

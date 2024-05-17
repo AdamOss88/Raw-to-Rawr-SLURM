@@ -4,7 +4,7 @@
 #SBATCH --mem=4gb
 #SBATCH --time=01:00:00
 #SBATCH --constraint=cal
-#SBATCH --output=output_module1-16S.%J.out
+#SBATCH --output=output_module1-ITS.%J.out
 
 ###make folders
 mkdir -p processed/1.trimmed_primers
