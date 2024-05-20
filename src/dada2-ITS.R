@@ -66,6 +66,9 @@ seqtab = dada2::makeSequenceTable(mergers)
 ################# Chimeras removal
 otu_table = dada2::removeBimeraDenovo(seqtab, method="consensus", multithread=TRUE, verbose=TRUE)
 
+##checkpoint
+save.image(file = "./processed/Renvironment.RData")
+
 ################# Taxonomy
 tax_table = dada2::assignTaxonomy(otu_table, database[1] , multithread=TRUE, verbose=T)
 
