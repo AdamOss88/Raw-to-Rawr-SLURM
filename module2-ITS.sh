@@ -11,7 +11,7 @@ echo "$(date +'%d/%m/%Y %H:%M')"
 
 # add databases
 #here provide paths to dada2 formated databases
-DB="/mnt/home/users/agr_169_2_uma/ossowicki/databases/UNITE_sh_general_release_dynamic_all_04.04.2024.fasta"
+DB=<here provide the path>
 
 #exampples:
 #DB="/mnt/home/users/<user>/databases/silva_nr99_v138.1_train_set.fa.gz"
