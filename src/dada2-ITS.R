@@ -65,6 +65,8 @@ seqtab = dada2::makeSequenceTable(mergers)
 
 ################# Chimeras removal
 otu_table = dada2::removeBimeraDenovo(seqtab, method="consensus", multithread=TRUE, verbose=TRUE)
+################# save the table with sequences
+otu_table_refseq = otu_table
 
 ##checkpoint
 save.image(file = "./processed/Renvironment.RData")
