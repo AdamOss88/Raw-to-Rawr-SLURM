@@ -5,6 +5,9 @@ library("magrittr")
 #functions
 source("./src/novaseq.R")
 
+#pass command line arguments
+database = commandArgs(trailingOnly=TRUE)
+
 #get sample names
 sample_names = gsub("_raw_1.fq.gz","",list.files("./raw_data", pattern="_1.fq.gz"))
 
@@ -23,7 +26,7 @@ errF <- dada2::learnErrors(filtF,
                     errorEstimationFunction = loessErrfun_mod4,# skip for NOT novaseq
                     randomize = T,
                     MAX_CONSIST = 12,
-                    multithread =8,
+                    multithread =128,
                     verbose = T)
 
 errR <- dada2::learnErrors(filtR,
@@ -31,7 +34,7 @@ errR <- dada2::learnErrors(filtR,
                     errorEstimationFunction = loessErrfun_mod4, # skip for NOT novaseq
                     randomize = T,
                     MAX_CONSIST = 12,
-                    multithread =8,
+                    multithread =128,
                     verbose = T)
 
 ####saving error graphs
