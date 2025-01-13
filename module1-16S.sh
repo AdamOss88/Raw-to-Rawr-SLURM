@@ -46,7 +46,7 @@ rm temp/primers_RC.fasta
 
 cd processed/1.trimmed_primers/
 
-module load fastp/0.23.4
+module load fastp/0.23.4 multiqc/1.13a
 
 for F in *_1.fq.gz; do
 echo "working on " $F " and " ${F//_1.fq.gz/_2.fq.gz}
@@ -58,9 +58,11 @@ fastp -i $F -I ${F//_1.fq.gz/_2.fq.gz} \
 -y -l 30 -r --cut_window_size 4 --cut_mean_quality 23 \
 --n_base_limit 0
 done
-
+#running multiqc
+cd ../../reports/quality/
+for i in *.json; do mv $i ${i//.json/.fastp.json}; done
+multiqc ./
 cd ../..
-
 ## potionally you can use the inbuild dada2 quality filtering tool  
 ## run an R script to filter and trim
 #Rscript --vanilla src/filter.R
