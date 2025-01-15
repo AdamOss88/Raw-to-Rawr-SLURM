@@ -11,14 +11,17 @@ echo "$(date +'%d/%m/%Y %H:%M')"
 
 module purge
 module load mafft iqtree R
-#alignment
-mafft --thread 64 results/refseq.fasta > results/refseq.ali 
-#tree
-iqtree2 -s results/refseq.ali -T AUTO
-
 #performing standard filtering and rarefaction
 Rscript --vanilla src/module3.R
+#alignment
+mafft --thread 64 ./results/refseq_filter_rare.fasta > ./results/refseq_filter_rare.ali 
+#tree
+iqtree2 -s ./results/refseq_filter_rare.ali -m GTR+I+G -T AUTO
+#making some order
+mkdir -p ./results/phylogeny
+mv ./results/refseq_filter_rare.ali* ./results/phylogeny
 
+#finish
 echo "end "
 echo "$(date +'%d/%m/%Y %H:%M')"
 
